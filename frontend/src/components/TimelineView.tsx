@@ -34,12 +34,14 @@ const TimelineView = ({
   // Opens the modal when an element is clicked.
   const handleClickElement = (element: FinancialElement) => {
     setModalOpen(true);
+    setModalMode('edit');
     setModalElement(element);
   };
 
   // Opens the modal when the 'add element' button is clicked.
   function handleClickAddElement(elementType: FinancialElement["type"]): void {
     setModalOpen(true);
+    setModalMode('create');
     setModalElement(createDefaultElement(elementType));
   }
 
@@ -53,7 +55,6 @@ const TimelineView = ({
     const newData = { ...data };
     addToFinancialData(newData, element);
     setData(newData);
-
     setModalOpen(false);
   }
 
@@ -62,15 +63,14 @@ const TimelineView = ({
     const newData = { ...data };
     replaceInFinancialData(newData, editedElement);
     setData(newData);
-
     setModalOpen(false);
   }
 
+  // Handles deleting an element identified by `elementId`.
   const handleDeleteElement = (elementId: string) => {
     const newData = { ...data };
     deleteFromFinancialData(newData, elementId);
     setData(newData);
-
     setModalOpen(false);
   }
 
