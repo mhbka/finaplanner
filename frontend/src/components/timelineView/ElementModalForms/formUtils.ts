@@ -17,7 +17,7 @@ export function buttonClassName(color: 'blue' | 'red' | 'grey' = 'blue'): string
 }
 
 /** Props for a form. */
-export interface FormProps<T extends FinancialElement> {
+export interface ElementModalFormProps<T extends FinancialElement> {
   element: T;
   onSave: (element: T) => void;
   onDelete: (elementId: string) => void;

@@ -7,7 +7,7 @@ interface BalanceSheetGraphProps {
     data: YearlyBalanceSheet[];
   }
   
-const BalanceSheetGraph: React.FC<BalanceSheetGraphProps> = ({ data }) => {
+export const BalanceSheetGraph: React.FC<BalanceSheetGraphProps> = ({ data }) => {
     const [activeMetrics, setActiveMetrics] = useState({
       netIncome: true,
       expenses: true,
