@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TimelineView from './components/TimelineView'
 import type { FinancialData } from './types/financialElements';
 import { SAMPLE_DATA } from './utils/sampleData';
-import BalanceSheetTable from './components/BalanceSheetTable';
+import { BalanceSheetDetails } from './components/BalanceSheetDetails';
 
 function App() {
   const [data, setData] = useState<FinancialData>(SAMPLE_DATA);
@@ -16,7 +16,7 @@ function App() {
     <div className="max-w-7xl mx-auto">
       <h1 className="text-3xl font-bold mb-8">Financial Planner</h1>
       <TimelineView startYear={startYear} endYear={endYear} data={data} setData={setData}/>
-      <BalanceSheetTable plan={plan} />
+      <BalanceSheetDetails plan={plan} />
     </div>
   </div>
 );

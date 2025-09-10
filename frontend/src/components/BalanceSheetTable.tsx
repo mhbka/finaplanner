@@ -1,19 +1,13 @@
-import type { FinancialPlan } from "../types/financialElements";
-import { calculateBalanceSheet } from "../utils/calculateBalance";
+import type { YearlyBalanceSheet } from "../types/financialBalanceElements";
 import { BalanceSheetTableHeader } from "./balanceSheetTable/BalanceSheetTableHeader";
 import { BalanceSheetTableRow } from "./balanceSheetTable/BalanceSheetTableRow";
 
-interface YearlyBalanceSheetTableProps {
-  plan: FinancialPlan;
+interface BalanceSheetTableProps {
+  data: YearlyBalanceSheet[]
 }
 
-// Displays the year-by-year financial breakdown for the user's plan.
-export default function YearlyBalanceSheetTable({ plan }: YearlyBalanceSheetTableProps) {
-  const data = calculateBalanceSheet(plan);
-  if (!data || data.length === 0) {
-    return <p className="text-gray-500 text-center">To get started, create a financial plan.</p>;
-  }
-
+/** Displays the year-by-year financial breakdown for the user's plan. */ 
+export default function BalanceSheetTable({ data }: BalanceSheetTableProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg p-4">
       <div className="mb-4">
